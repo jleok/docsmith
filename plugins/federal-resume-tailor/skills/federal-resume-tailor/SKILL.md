@@ -1,5 +1,5 @@
 ---
-name: federal-resume-tailor
+name: federal-resume-wiz
 description: Tailors an input resume aka master resume from the user to a specific target job (federal/gov) by rewriting the input resumes bullet points to mirror the target job posting's language and reprioritizing the most relevant experience, then builds the result as a Word document (.docx) formatted to federal resume rules (2-page limit, Calibri font, required header/education fields, etc.). Use ONLY when the user explicitly invokes this skill by name (e.g. "use the resume tailor skill," "run the federal resume tailor") — do not trigger just because a resume and a job posting appear together in the same message, and do not trigger for general resume questions, proofreading, or advice. Wait for explicit invocation.
 compatibility: Requires Node with the `docx` package (declared in the plugin's package.json) to construct the output file. No other dependencies and no network access needed.
 ---
