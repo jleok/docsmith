@@ -1,0 +1,26 @@
+{
+  "name": "docsmith",
+  "owner": {
+    "name": "John Leo Kirkpatrick",
+    "url": "https://www.johnleokirkpatrick.com"
+  },
+  "description": "Generate the documents nobody wants to write",
+  "plugins": [
+    {
+      "name": "cover-letter-wiz",
+      "source": "./plugins/cover-letter-wiz",
+      "description": "Writes a cover letter that matches your resume's exact fonts, sizes, and margins",
+      "version": "1.0.0",
+      "license": "MIT",
+      "keywords": ["cover letter", "job search", "docx"]
+    },
+    {
+      "name": "federal-resume-tailor",
+      "source": "./plugins/federal-resume-tailor",
+      "description": "Tailors a master resume to a specific USAJOBS posting in federal format",
+      "version": "1.0.0",
+      "license": "MIT",
+      "keywords": ["resume", "usajobs", "federal", "docx"]
+    }
+  ]
+}
