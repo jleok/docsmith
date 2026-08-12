@@ -1,7 +1,8 @@
 {
   "name": "cover-letter-wiz",
   "description": "Writes a cover letter that matches your resume's exact fonts, sizes, and margins",
-  "version": "1.0.0",
-  "author": { "name": "John Leo Kirkpatrick" },
+  "author": {
+    "name": "John Leo Kirkpatrick"
+  },
   "license": "MIT"
 }
