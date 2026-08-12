@@ -1,0 +1,10 @@
+{
+  "name": "federal-resume-tailor",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Runtime dependency for building .docx output",
+  "license": "MIT",
+  "dependencies": {
+    "docx": "^9.0.0"
+  }
+}

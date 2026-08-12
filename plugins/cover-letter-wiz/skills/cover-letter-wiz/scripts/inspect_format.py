@@ -189,8 +189,13 @@ def main():
     elif low.endswith(".pdf"):
         spec = inspect_pdf(path)
     elif low.endswith(".doc"):
-        sys.exit("convert .doc first: python /mnt/skills/public/docx/scripts/"
-                 "office/soffice.py --headless --convert-to docx " + path)
+        sys.exit(
+            "Legacy .doc is not supported directly. Convert it first with "
+            "LibreOffice:\n"
+            "  soffice --headless --convert-to docx " + path + "\n"
+            "If soffice is not installed: "
+            "macOS  brew install --cask libreoffice | "
+            "Debian/Ubuntu  sudo apt install libreoffice")
     else:
         sys.exit("expected a .docx or .pdf")
     report(spec)

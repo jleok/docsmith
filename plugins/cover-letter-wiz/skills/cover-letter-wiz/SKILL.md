@@ -1,7 +1,7 @@
 ---
 name: cover-letter-wiz
 description: Writes a tailored cover letter as a Word document (.docx) from a finished resume plus a job posting, automatically matching the resume's font, sizes, and margins so the two documents look like a set, and deliberately avoiding the punctuation and phrasing that make writing read as AI generated. Use this whenever the user wants a cover letter, letter of interest, letter of application, or "the letter that goes with this resume" — whether or not they name the skill, and including phrasings like "write a cover letter for this job," "I need a cover letter for this posting," or "can you draft a letter of interest." Also use when the user attaches a finished resume alongside a job posting and asks for a letter. Do NOT use this to write, tailor, or rewrite the resume itself; that is the federal-resume-tailor skill's job.
-compatibility: Requires docx (npm, preinstalled), pandoc, poppler (pdftotext, pdftoppm, pdfinfo), pdfplumber, and LibreOffice via the docx skill's scripts/office/soffice.py. No network access needed.
+compatibility: Requires Node with the `docx` package (declared in the plugin's package.json), plus poppler (pdftotext, pdftoppm, pdfinfo) for reading PDF resumes. LibreOffice (`soffice`) is optional and used only for the visual verification pass and for legacy .doc input. pdfplumber improves PDF font detection but is not required. No network access needed.
 ---
 
 # Cover-Letter-Wiz
@@ -48,7 +48,7 @@ pdftotext -layout resume.pdf -          # .pdf
 Legacy `.doc` must be converted first:
 
 ```bash
-python3 /mnt/skills/public/docx/scripts/office/soffice.py --headless --convert-to docx resume.doc
+soffice --headless --convert-to docx resume.doc
 ```
 
 Pull out the full name, email, phone, LinkedIn if present, and every concrete
@@ -71,7 +71,7 @@ Then render the resume's first page and look at it, because alignment and
 spacing are not in the spec block:
 
 ```bash
-python3 /mnt/skills/public/docx/scripts/office/soffice.py --headless --convert-to pdf resume.docx
+soffice --headless --convert-to pdf resume.docx
 pdftoppm -jpeg -r 100 resume.pdf rpage && ls rpage-*.jpg
 ```
 
@@ -183,8 +183,10 @@ for ch, label in [('\u2014','em dash'), ('\u2013','en dash'), (':','colon'), (';
         print('FOUND', label, '->', [s for s in body.split('.') if ch in s][:2])
 "
 
-# 2. One page, and look at it.
-python3 /mnt/skills/public/docx/scripts/office/soffice.py --headless --convert-to pdf out.docx
+# 2. One page, and look at it. If soffice is not installed, skip this
+#    block, and tell the user the letter was not visually verified.
+#    Do not treat a missing soffice as a failure.
+soffice --headless --convert-to pdf out.docx
 pdfinfo out.pdf | grep Pages
 pdftoppm -jpeg -r 100 out.pdf page && ls page-*.jpg
 
