@@ -18,8 +18,8 @@
       ]
     },
     {
-      "name": "federal-resume-tailor",
-      "source": "./plugins/federal-resume-tailor",
+      "name": "federal-resume-wiz",
+      "source": "./plugins/federal-resume-wiz",
       "description": "Tailors a master resume to a specific USAJOBS posting in federal format",
       "license": "MIT",
       "keywords": [

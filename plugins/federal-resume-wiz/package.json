@@ -1,5 +1,5 @@
 {
-  "name": "federal-resume-tailor",
+  "name": "federal-resume-wiz",
   "version": "1.0.0",
   "private": true,
   "description": "Runtime dependency for building .docx output",
