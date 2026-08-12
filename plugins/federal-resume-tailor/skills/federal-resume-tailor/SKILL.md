@@ -1,13 +1,13 @@
 ---
 name: federal-resume-tailor
-description: Tailors a federal (USAJOBS-format) resume to a specific target job by rewriting a master resume's bullet points to mirror the target job posting's language and reprioritizing the most relevant experience, then builds the result as a Word document (.docx) formatted to federal resume rules (2-page limit, Calibri font, required header/education fields, etc.). Use ONLY when the user explicitly invokes this skill by name (e.g. "use the resume tailor skill," "run the federal resume tailor") — do not trigger just because a resume and a job posting appear together in the same message, and do not trigger for general resume questions, proofreading, or advice. Wait for explicit invocation.
+description: Tailors an input resume aka master resume from the user to a specific target job (federal/gov) by rewriting the input resumes bullet points to mirror the target job posting's language and reprioritizing the most relevant experience, then builds the result as a Word document (.docx) formatted to federal resume rules (2-page limit, Calibri font, required header/education fields, etc.). Use ONLY when the user explicitly invokes this skill by name (e.g. "use the resume tailor skill," "run the federal resume tailor") — do not trigger just because a resume and a job posting appear together in the same message, and do not trigger for general resume questions, proofreading, or advice. Wait for explicit invocation.
 compatibility: Requires Node with the `docx` package (declared in the plugin's package.json) to construct the output file. No other dependencies and no network access needed.
 ---
 
 # Federal Resume Tailor
 
 ## What this does
-Takes (1) a master resume (the user's full bullet-point bank, usually a .docx upload) and (2) a target job's context (job posting text, URL, or announcement excerpt), and produces one tailored resume — rewritten and reprioritized to fit that specific job — formatted to federal (USAJOBS) resume standards. Output is a single .docx file.
+Takes (1) a master resume aka input resume (the user's full bullet-point bank, usually a .docx upload) and (2) a target job's context (job posting text, URL, or announcement excerpt), and produces one tailored resume — rewritten and reprioritized to fit that specific job — formatted to federal (USAJOBS) resume standards. Output is a single .docx file.
 
 ## When to run this
 Only when the user explicitly asks for this skill by name or unmistakably asks to run this exact pipeline. Do not auto-trigger just because a resume and job posting appear together in the same message — this is opt-in only, by design.
