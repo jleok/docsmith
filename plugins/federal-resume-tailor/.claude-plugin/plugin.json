@@ -1,0 +1,7 @@
+{
+  "name": "federal-resume-tailor",
+  "description": "Tailors a master resume to a specific USAJOBS posting in federal format",
+  "version": "1.0.0",
+  "author": { "name": "John Leo Kirkpatrick" },
+  "license": "MIT"
+}
